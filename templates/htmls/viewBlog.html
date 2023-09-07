@@ -1,0 +1,25 @@
+{% extends 'htmls/base.html' %} 
+{% load static %}
+
+{% block home %}
+
+    <div class="testing">
+        
+        <div class="testing1">
+            <div class="test1">
+                <img src="{% static 'images/campus.png' %}" alt="">
+            
+            <div class="test2">
+                {{viewBlog.title}}
+            </div>
+            <div class="test3">
+                -{{viewBlog.author}} 
+            </div>
+            <div class="test4">
+                {{viewBlog.contentBox}}
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock home %}

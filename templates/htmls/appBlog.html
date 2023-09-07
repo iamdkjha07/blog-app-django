@@ -1,0 +1,48 @@
+{% extends 'htmls/base.html' %}
+{% load static %}
+
+{% block appBlog %}
+    
+
+    <main class="mainAppBlogSection">
+
+        <div class="mainAppBlogSectionHeroImage">
+            <img src="{% static 'images/webBlogHeroCover.png' %}" alt="">
+            <div class="AppBlogheroImageContent">
+                App Development 
+            </div>
+        </div>
+            
+        <div class="appBlogPostSection">
+            {% for obj in AppBlog %}
+            <div class="appBlogPostSectionPost1">
+                <div class="appBlogPostSectionPost1Image">
+                    <img src="{% static 'images/campus.png' %}" alt="">
+                </div>
+                <div class="appBlogPostSectionPost1Title">
+                    {{obj.title}}
+                </div>
+                <div class="appBlogPostSectionPost1Author">
+                    -{{obj.author}} 
+                </div>
+                <div class="appBlogPostSectionPost1Content">
+                    {{obj.contentBox|safe|truncatechars:170}}
+                </div>
+                <div class="appBlogPostSectionPost1Button">
+                    <input type="submit" value="Read More">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+    </main>
+
+
+
+
+
+
+{% endblock appBlog %}

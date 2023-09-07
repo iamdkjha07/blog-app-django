@@ -1,0 +1,185 @@
+{% extends 'htmls/base.html' %}
+{% load static %}
+
+{% block blog %}
+
+    <div class="recentlyAddedBlog">
+
+        <div class="mainRecentlyAdded">
+
+            <div class="recentlyAddedBlogHeading">
+                <div class="recentlyAddedBlogHeading1">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading2">
+                    RECENTLY ADDED
+                </div>
+                <div class="recentlyAddedBlogHeading3">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading4">
+                    <a href="">VIEW ALL</a>
+                </div>
+                <div class="recentlyAddedBlogHeading5">
+                    <hr>
+                </div>
+            </div>
+
+            <div class="recentlyAddedBlogPost">
+                {% for obj in RecentBlog %}
+                <div class="recentlyAddedBlogPost1">
+                    <div class="recentlyAddedBlogPostImage">
+                        <img src="/media/{{obj.imageBox}}" alt="">
+                    </div>
+                    <div class="recentlyAddedBlogPostTitle">
+                        {{obj.title}}
+                    </div>
+                    <div class="recentlyAddedBlogPostAuthor">
+                        -{{obj.author}}
+                    </div>
+                    <div class="recentlyAddedBlogPostContent">
+                        {{obj.contentBox|safe|truncatechars:170}}
+                    </div>
+                    <div class="recentlyAddedBlogPostButton">
+                        <a  href="{% url 'viewBlog' obj.id %}">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="recentlyAddedBlog">
+
+        <div class="mainRecentlyAdded">
+
+            <div class="recentlyAddedBlogHeading">
+                <div class="recentlyAddedBlogHeading1">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading2">
+                    WEB DEVELOPMENT
+                </div>
+                <div class="recentlyAddedBlogHeading3">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading4">
+                    <a href="{% url 'webBlog' %}">VIEW ALL</a>
+                </div>
+                <div class="recentlyAddedBlogHeading5">
+                    <hr>
+                </div>
+            </div>
+
+            
+
+            <div class="recentlyAddedBlogPost">
+                {% for obj in WebBlog %}
+                <div class="recentlyAddedBlogPost1">
+                    <div class="recentlyAddedBlogPostImage">
+                        <img src="/media/{{obj.imageBox}}" alt="">
+                    </div>
+                    <div class="recentlyAddedBlogPostTitle">
+                        {{obj.title}}
+                    </div>
+                    <div class="recentlyAddedBlogPostAuthor">
+                        -{{obj.author}} 
+                    </div>
+                    <div class="recentlyAddedBlogPostContent">
+                        {{obj.contentBox|safe|truncatechars:170}}
+                    </div>
+                    <div class="recentlyAddedBlogPostButton">
+                        <a  href="{% url 'viewBlog' obj.id %}">Read More</a>
+                    </div>
+                </div>
+                {% endfor %} 
+            </div>
+
+            
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="recentlyAddedBlog">
+
+        <div class="mainRecentlyAdded">
+
+            <div class="recentlyAddedBlogHeading">
+                <div class="recentlyAddedBlogHeading1">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading2">
+                    APP DEVELOPMENT
+                </div>
+                <div class="recentlyAddedBlogHeading3">
+                    <hr>
+                </div>
+                <div class="recentlyAddedBlogHeading4">
+                    <a href="{% url 'appBlog' %}">VIEW ALL</a>
+                </div>
+                <div class="recentlyAddedBlogHeading5">
+                    <hr>
+                </div>
+            </div>
+
+            <div class="recentlyAddedBlogPost">
+                {% for obj in AppBlog %}
+                <div class="recentlyAddedBlogPost1">
+                    <div class="recentlyAddedBlogPostImage">
+                        <img src="/media/{{obj.imageBox}}" alt="">
+                    </div>
+                    <div class="recentlyAddedBlogPostTitle">
+                        {{obj.title}}
+                    </div>
+                    <div class="recentlyAddedBlogPostAuthor">
+                        -{{obj.author}}  
+                    </div>
+                    <div class="recentlyAddedBlogPostContent">
+                        {{obj.contentBox|safe|truncatechars:170}}
+                    </div>
+                    <div class="recentlyAddedBlogPostButton">
+                        <a  href="{% url 'viewBlog' obj.id %}">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+{% endblock blog %}

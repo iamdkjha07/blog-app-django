@@ -1,0 +1,92 @@
+{% extends 'htmls/base.html' %}
+{% load static %}
+
+{% block Contact %}
+
+   <main class="contactSection">
+        <div class="contactFirst">
+            <img src="{% static 'images/contactUs.jpg' %}" alt="contactUs">
+            <div class="contactPart1">
+                Contact Us
+            </div>
+            <div class="contactPart1_1">
+                Get in Touch
+            </div>
+        </div>
+        <div class="contactSecond">
+            <div class="contactSecondBox">
+                <div class="contactSecondPart1">
+                    <div class="part1_1">
+                        <div class="part1_1_1">
+                            Send Message
+                        </div>
+                        <!-- <div class="part1_1_2">
+                            <img src="{% static 'images/email.png' %}" alt="">
+                        </div> -->
+                    </div>
+
+                    <form action="{% url 'contact' %}" class="contactForm" method="post">
+                        {% csrf_token %}
+                        <div class="part1_2">
+                            <div class="fnameBox">
+                                <input type="text" name="fname" required="required">
+                                <span>Name</span>
+                            </div>
+                            <div class="emailIdBox">
+                                <input type="text" name="email" required="required">
+                                <span>Email Address</span>
+                            </div>
+                        </div>
+
+                        <div class="part1_3">
+                            <div class="phoneNo">                            
+                              
+                                <input type="tel" name="phoneNo" required="required">
+                                <span>Phone Number</span>
+                            </div>
+                            <div class="Subject">                          
+                                <input type="text" name="subject" required="required"> 
+                                <span>Subject</span>                              
+                            </div>
+                        </div>
+                        <div class="part1_4">                        
+                            <textarea name="messageBox" id="messageBox"  rows="2" required="required"></textarea>
+                            <span>Message</span>
+                        </div>
+                        <div class="part1_5">
+                            <span data-hover="Send">
+                                <input type="submit" name="part1_5" value="Submit">
+                            </span>
+                        </div>
+                    </form>
+
+
+
+                </div>
+                <div class="contactSecondPart2">
+                    <div class="mapDirection">
+                        Location
+                    </div>
+                    <div class="mapSection">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.9365848860525!2d77.4894224755881!3d28.481456375747694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce8ba81555555%3A0x738ac1a025bee778!2sIIMT%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1691313647652!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="addressSection">
+                        <div class="addressSection1">
+                            Plot No. 19 & 20,
+                        </div> 
+                        
+                        <div class="addressSection2">
+                            Knowledge Park III, Greater Noida, 
+                        </div>
+                        
+                        <div class="addressSection3">
+                            Uttar Pradesh - 201310
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   </main>
+
+{% endblock Contact %}

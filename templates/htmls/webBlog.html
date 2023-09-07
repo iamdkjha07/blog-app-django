@@ -1,0 +1,48 @@
+{% extends 'htmls/base.html' %}
+{% load static %}
+
+{% block webBlog %}
+    
+
+    <main class="mainWebBlogSection">
+
+        <div class="mainWebBlogSectionHeroImage">
+            <img src="{% static 'images/webBlogHeroCover.png' %}" alt="">
+            <div class="webBlogheroImageContent">
+                Web Development 
+            </div>
+        </div>
+            
+        <div class="webBlogPostSection">
+            {% for obj in WebBlog %}
+            <div class="webBlogPostSectionPost1">
+                <div class="webBlogPostSectionPost1Image">
+                    <img src="/media/{{obj.imageBox}}" alt="">
+                </div>
+                <div class="webBlogPostSectionPost1Title">
+                    {{obj.title}}
+                </div>
+                <div class="webBlogPostSectionPost1Author">
+                    -{{obj.author}} 
+                </div>
+                <div class="webBlogPostSectionPost1Content">
+                    {{obj.contentBox|safe|truncatechars:170}}
+                </div>
+                <div class="webBlogPostSectionPost1Button">
+                    <a  href="{% url 'viewBlog' obj.id %}">Read More</a>
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+
+
+
+
+    </main>
+
+
+
+
+
+
+{% endblock webBlog %}

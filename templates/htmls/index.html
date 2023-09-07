@@ -1,0 +1,121 @@
+{% extends 'htmls/base.html' %} 
+{% load static %}
+
+{% block home %}
+
+   <main class="homeBlogSection">
+
+        <div class="homeBlogSectionForm">
+
+            <div class="postBlog">
+                <div class="postBlogPart1">
+                    Post Your Blog  
+                </div>
+            </div>
+
+            <div class="formBoxContent">
+                <form action="{% url 'contact' %}" class="homeBlogSectionUploadForm" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    <div class="postCategory">
+                        <span>Category :</span>
+                        <input type="text" name="postCategory">
+                    </div>
+                    <div class="uploadFile">
+                        <span>Thumbnail :</span>
+                        <input type="file" required="required" name="uploadFile">   
+                    </div>
+                    <div class="uploadFileTitleAuthor">
+                        <div class="uploadFileTitle">
+                            <span>Title :</span>
+                            <input type="text" required="required" name="uploadFileTitle">
+                        </div>
+                        <div class="uploadFileAuthor">
+                            <span>Author :</span>
+                            <input type="text" required="required" name="uploadFileAuthor">
+                        </div>
+                    </div>
+                    <div class="uploadFileContent">
+                        <span>Content :</span>
+                        <br>
+                        <textarea name="uploadFileContent" id="uploadFileContent" name="uploadFileContent" rows="3" required="required"></textarea>
+                    </div>
+                    <div class="uploadFileButton">
+                        <span data-hover="Send">
+                            <input type="submit" name="uploadFileButton" value="Submit">
+                        </span>
+                    </div>
+    
+                </form>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="popularBlogSection">
+            <div class="mainRecentlyAdded">
+
+                <div class="recentlyAddedBlogHeading">
+                    <div class="recentlyAddedBlogHeading1">
+                        <hr>
+                    </div>
+                    <div class="recentlyAddedBlogHeading2">
+                        POPULAR BLOGS
+                    </div>
+                    <div class="recentlyAddedBlogHeading3">
+                        <hr>
+                    </div>
+                    <div class="recentlyAddedBlogHeading4">
+                        <a href="">VIEW ALL</a>
+                    </div>
+                    <div class="recentlyAddedBlogHeading5">
+                        <hr>
+                    </div>
+                </div>
+    
+                <div class="recentlyAddedBlogPost">
+                    {% for obj in PopularBlog %}
+                    <div class="recentlyAddedBlogPost1">
+                        <div class="recentlyAddedBlogPostImage">
+                            <img src="/media/{{obj.imageBox}}" alt="">
+                        </div>
+                        <div class="recentlyAddedBlogPostTitle">
+                            {{obj.title}}
+                        </div>
+                        <div class="recentlyAddedBlogPostAuthor">
+                            -{{obj.author}}
+                        </div>
+                        <div class="recentlyAddedBlogPostContent">
+                            {{obj.contentBox|safe|truncatechars:170}}
+                        </div>
+                        <div class="recentlyAddedBlogPostButton">
+                            <a  href="{% url 'viewBlog' obj.id %}">Read More</a>
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+    
+    
+    
+    
+    
+    
+    
+            </div>
+        </div>
+
+
+
+
+
+
+   </main>
+
+   
+
+
+
+{% endblock home %}

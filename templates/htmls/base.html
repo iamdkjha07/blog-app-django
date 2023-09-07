@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titles}}</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="icon" href="{% static 'images/logo.jpeg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,900;1,200;1,400;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Header Section Starts-->
+    <header class="headerSection">
+        <div class="headerPart1">
+            IIMT Blogs
+        </div>
+        <div class="headerPart2">
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="{% url 'blog' %}"><li>Blogs</li></a>
+                <a href="{% url 'about' %}"><li>About Us</li></a>
+                <a href="{% url 'contact' %}"><li>Contact Us</li></a>
+            </ul>
+        </div>
+    </header>
+    <!-- Header Section Ends -->
+
+
+
+
+
+    <!-- Contents start -->
+
+
+    {% block home %}
+
+    {% endblock home %}
+
+    
+
+
+    {% block Contact %}
+    
+    {% endblock Contact %}
+
+
+
+
+    {% block About %}
+    
+    {% endblock About %}
+
+
+
+
+    {% block webBlog %}
+    
+    {% endblock webBlog %}
+
+
+
+
+
+    {% block appBlog %}
+    
+    {% endblock appBlog %}
+
+
+
+    {% block blog %}
+    
+    {% endblock blog %}
+
+
+
+
+
+
+
+
+    <!-- Contents ends -->
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="footerSection">
+        <div class="footerSectionBox">
+            <div class="footerPart1">
+                <div class="footer1_1">
+                    <p>IIMT Blogs</p>
+                    A perfect blog website made by Diwakar Jha.
+                </div>
+                <div class="footer1_2">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'blog' %}">Blogs</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                    
+                </div>
+                <!-- <div class="footerVecticalLine2">
+                        
+                </div> -->
+                <div class="footer1_3">
+                    <div class="footerImageItem1">
+                        <a href="https://github.com/iamdkjha" target="_blank"><img src="{% static 'images/github.png' %}" alt="github" width="25px" height="25px"></a>
+                    </div>
+                    <div class="footerImageItem2">
+                        <a href="https://www.linkedin.com/in/iamdkjha07/" target="_blank"><img src="{% static 'images/linkedin.png' %}" alt="linkedin" width="25px" height="25px"></a>
+                    </div>
+                    <div class="footerImageItem3">
+                        <a href="https://www.instagram.com/iamdkjha/" target="_blank"><img src="{% static 'images/insta.png' %}" alt="instagram" width="25px" height="25px"></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footerPart2">
+                Copyright &#169 2023 IIMT Blogs. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section Ends -->
+
+</body>
+</html>
